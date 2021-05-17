@@ -1,0 +1,50 @@
+.btn {
+  display: inline-block;
+  padding: .8em 2em;
+  line-height: 1;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 30px;
+  margin-top: 20px;
+
+  // default btn
+  &.btnDefaul {
+    color: #ffffff;
+    border: 1px solid #333333;
+    background-color: #333333;
+  }
+
+  // primiry btn (changed)
+  &.btnPrimary {
+    color: #ffffff;
+    border: 1px solid #494ce8;
+    background-color: #494ce8;
+    max-width: 200px;
+    justify-self: end;
+  }
+
+  // for priority btn (changed)
+  &.btnYellow {
+    color: #ffffff;
+    background-color: rgb(231, 243, 179);
+    padding: 6.5px 6.5px;
+    text-transform: lowercase;
+    margin-right: 10px;
+  }
+
+  &.btnDanger {
+    color: #ffffff;
+    background-color: rgb(233, 171, 171);
+    padding: 6.5px 6.5px;
+    text-transform: lowercase;
+  }
+
+  &.btnWhite {
+    color: #333333;
+    border: 1px solid rgb(112, 107, 107);
+    padding: 6.5px 6.5px;
+    background-color: #ffffff;
+    text-transform: lowercase;
+    margin-right: 10px;
+  }
+}
