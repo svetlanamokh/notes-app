@@ -57,8 +57,7 @@
         note: {
           title: '',
           descr: '',
-          status: 'standart',
-          category: 'work'
+          status: 'standart'
         },
         notes: [
           {
@@ -99,7 +98,7 @@
     methods: {
       addNote () {
         //console.log(this.note)
-        let {title, descr, status, category} = this.note
+        let {title, descr, status} = this.note
 
         if (title === '') {
           this.message = 'title can`t be blank!'
@@ -110,14 +109,12 @@
           title,
           descr,
           status,
-          category,
           date: new Date(Date.now()).toLocaleString()
         })
         this.message = null
         this.note.title = ''
         this.note.descr = ''
-        this.note.status = 'standart',
-        this.note.category = 'work'
+        this.note.status = 'standart'
       },
       removeNote (index) {
         this.notes.splice(index, 1)
