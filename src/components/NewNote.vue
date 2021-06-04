@@ -1,7 +1,8 @@
 <template>
     <div class="new-note">
+        <message v-if="message" :message="message"/>
         <label>Title</label>
-        <input v-model="note.title" type="text">
+        <input v-model="note.title" type="text"> 
         <label>Description</label>
         <textarea v-model="note.descr"></textarea>
         <div class="exp">
@@ -16,17 +17,40 @@
 </template>
 
 <script>
+import message from '@/components/Message.vue'
 export default {
-
-    props: {
-        note: {
-            type: Object,
-            required: true
+    components: {
+        message
+    },
+    data () {
+        return {
+            note: {
+                title: '',
+                descr: '',
+                status: 'standart'
+            },
+            message: null
         }
     },
     methods: {
         addNote () {
-            this.$emit('addNote', this.note)
+            let note = {};
+            Object.assign(note, this.note)
+
+            if (note.title === '') {
+                this.message = 'title can`t be blank!'
+                return false
+            }
+            
+            this.$store.dispatch('addNotes', note)
+            
+            this.clearNoteForm();
+        },
+        clearNoteForm () {
+            this.message = null
+            this.note.title = ''
+            this.note.descr = ''
+            this.note.status = 'standart'
         }
     }
 }
